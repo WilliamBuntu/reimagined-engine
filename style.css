@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+  :root{
+    --dark:#34495e;
+    --light:#ffffff;
+    --success:#0abf30;
+    --error:#f24d4c;
+    --warning:#e9bd0c;
+    --info:#3498db;
+  }
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--dark) ;
+}
+.notifications{
+    position: fixed;
+    top: 30px;
+    right: 20px;
+}
+.notifications :where(.toast, .column){
+    display: flex;
+    align-items: center;
+}
+.notifications .toast{
+    width: 400px;
+    position: relative;
+    list-style: none;
+    overflow: hidden;
+    border-radius: 4px;
+    padding: 16px 17px;
+    margin-bottom: 10px;
+    background: var(--light);
+    justify-content: space-between;
+    animation: showx 0.3s ease forwards;
+
+}
+
+@keyframes showx {
+    0% {
+       transform: translateX(100%);
+    }
+        40% {
+            transform: translateX(-5%);
+        }
+                80% {
+                    transform: translateX(0%);
+                }
+                             100% {
+                             transform: translateX(-10%);
+                      }
+}
+
+.toast::before{
+    position: absolute;
+    content:"" ;
+    height: 3px;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    animation: progress 5s linear forwards;
+
+}
+
+@keyframes progress {
+    100%{
+        width: 50%;
+    }
+}
+
+.toast.success::before , .btn#success{
+background: var(--success)
+}
+
+.toast.error::before , .btn#error {
+    background: var(--error)
+}
+
+.toast.warning::before , .btn#warning {
+    background: var(--warning)
+}
+
+.toast.info::before , .btn#info {
+    background: var(--info)
+}
+ .toast .column span{
+    font-size: 1.07rem;
+    margin-left: 12px;
+ }
+
+ .xx{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:black;
+    cursor: pointer;
+    border: none;
+    background: #ffffff;
+    font-size: 15px;
+ }
+ .xx:hover{
+    color: #34495e;
+    background: #e9bd0c;
+    width: 20px;
+ }
+
+ .buttons .btn{
+ border: none;
+ outline: none;
+ color: #fff;
+ cursor: pointer;
+ margin: 0 5px;
+ font-size: 1.2rem;
+ padding: 10px 10px;
+ border-radius: 5px;
+ }
